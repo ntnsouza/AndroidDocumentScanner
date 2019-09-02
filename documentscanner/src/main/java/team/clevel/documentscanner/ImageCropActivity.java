@@ -38,10 +38,10 @@ public class ImageCropActivity extends Activity {
 
     private FrameLayout holderImageCrop;
     private ImageView ivRotate,ivInvert,ivRebase;
-    private ImageView imageView;
+    private ImageView imageView, btnClose;
     private PolygonView polygonView;
     private Bitmap selectedImageBitmap,tempBitmapOrginal;
-    private Button btnImageCrop,btnClose;
+    private Button btnImageCrop;
     private NativeClass nativeClass;
     private boolean isInverted;
     private ProgressBar progressBar;
@@ -114,7 +114,7 @@ public class ImageCropActivity extends Activity {
         ivInvert = findViewById(R.id.ivInvert);
         ivRebase = findViewById(R.id.ivRebase);
         btnImageCrop.setText(ScannerConstants.cropText);
-        btnClose.setText(ScannerConstants.backText);
+        //btnClose.setText(ScannerConstants.backText);
         polygonView = findViewById(R.id.polygonView);
         progressBar = findViewById(R.id.progressBar);
         if (progressBar.getIndeterminateDrawable()!=null && ScannerConstants.progressColor!=null)
@@ -123,7 +123,7 @@ public class ImageCropActivity extends Activity {
             progressBar.getProgressDrawable().setColorFilter(Color.parseColor(ScannerConstants.progressColor), android.graphics.PorterDuff.Mode.MULTIPLY);
         setProgressBar(true);
         btnImageCrop.setBackgroundColor(Color.parseColor(ScannerConstants.cropColor));
-        btnClose.setBackgroundColor(Color.parseColor(ScannerConstants.backColor));
+        //btnClose.setBackgroundColor(Color.parseColor(ScannerConstants.backColor));
         Observable.fromCallable(() -> {
             setImageRotation();
             return false;
